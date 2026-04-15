@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Catalog — CCC Google Data Analytics</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="courses">
+
+  <div id="site-header"></div>
+
+  <!-- ═══ Hero ═══ -->
+  <section class="hero hero-sm">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="https://ai.cccco.edu/">CCCCO AI</a>
+        <span class="sep">/</span>
+        <a href="index.html">Google Tools</a>
+        <span class="sep">/</span>
+        <span class="current">Course Catalog</span>
+      </nav>
+      <h1>Course Catalog</h1>
+      <p class="lead">19 ready-to-adopt Canvas courses — from micro-credentials to full-semester courses. All available on Canvas Commons under CC BY 4.0.</p>
+    </div>
+  </section>
+
+  <!-- ═══ Courses ═══ -->
+  <section>
+    <div class="container">
+
+      <div class="cpl-highlight mb-4">
+        <h3>Looking for CPL?</h3>
+        <p>Students who already hold a Google certificate can earn credit through our CPL courses — no Coursera coursework required. <a href="cpl.html">Explore CPL Pathways &rarr;</a></p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCourses('all', this)">All Courses</button>
+        <button class="filter-btn" onclick="filterCourses('tier1', this)">Tier 1 Micro-Credentials</button>
+        <button class="filter-btn" onclick="filterCourses('tier2', this)">Tier 2 Full Courses</button>
+        <button class="filter-btn" onclick="filterCourses('cpl', this)">CPL Only</button>
+      </div>
+
+      <!-- ── Tier 1 ── -->
+      <div class="tier-divider" data-tier="tier1"><span>Tier 1 — Micro-Credential Courses (1 Unit)</span></div>
+      <div class="card-grid">
+
+        <div class="card course-card" data-tier="tier1" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-101</span><div class="card-title">Data Analytics Foundations</div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag coursera">Coursera 1 &amp; 2</span><span class="meta-tag hours">~28 hrs</span></div>
+            <p class="card-desc">Introduction to data analytics and data-driven decision making. Covers Google DA Coursera courses 1 (Foundations) and 2 (Ask Questions).</p>
+            <p class="card-skills"><strong>Skills:</strong> Analytical thinking, spreadsheets, asking effective questions</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-101+CCC+Google+Data+Analytics&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-101 CPL</span><div class="card-title">Data Analytics Foundations<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only — no Coursera coursework. C or better to pass.</p>
+            <p class="card-skills"><strong>Evidence:</strong> Coursera cert (Courses 1-2) + written scenario analysis</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=Data+Analytics+Foundations+CPL+CCC+Google&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-102</span><div class="card-title">Data Preparation and Integrity</div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag coursera">Coursera 3</span><span class="meta-tag hours">~19 hrs</span></div>
+            <p class="card-desc">Data collection planning, data types, and data integrity assessment. Covers Google DA Coursera course 3 (Prepare Data).</p>
+            <p class="card-skills"><strong>Skills:</strong> Data collection, data types, bias identification, data integrity</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-102+Data+Preparation+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-102 CPL</span><div class="card-title">Data Preparation and Integrity<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only — no Coursera coursework required.</p>
+            <p class="card-skills"><strong>Evidence:</strong> Coursera cert (Course 3) + data preparation exercise</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-102+Data+Preparation+Integrity+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-103</span><div class="card-title">Data Processing with SQL</div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag coursera">Coursera 4 &amp; 5</span><span class="meta-tag hours">~42 hrs</span></div>
+            <p class="card-desc">SQL-based data processing and analysis. Covers Google DA Coursera courses 4 (Process Data) and 5 (Analyze Data).</p>
+            <p class="card-skills"><strong>Skills:</strong> SQL queries, data cleaning, data analysis, spreadsheet functions</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-103+Data+Processing+SQL+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-103 CPL</span><div class="card-title">Data Processing with SQL<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only — no Coursera coursework required.</p>
+            <p class="card-skills"><strong>Evidence:</strong> Coursera cert (Courses 4-5) + SQL practical exam</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-103+Data+Processing+SQL+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-104</span><div class="card-title">Data Visualization and Storytelling</div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag coursera">Coursera 6</span><span class="meta-tag hours">~19 hrs</span></div>
+            <p class="card-desc">Data visualization principles and storytelling with data. Covers Google DA Coursera course 6 (Share Data).</p>
+            <p class="card-skills"><strong>Skills:</strong> Tableau basics, chart design, data storytelling, presentation</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-104+Data+Visualization+Storytelling+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-104 CPL</span><div class="card-title">Data Visualization and Storytelling<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only — no Coursera coursework required.</p>
+            <p class="card-skills"><strong>Evidence:</strong> Coursera cert (Course 6) + dashboard portfolio piece</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-104+Data+Visualization+Storytelling+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-105</span><div class="card-title">Python for Data Analysis</div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag coursera">Coursera 7</span><span class="meta-tag hours">~27 hrs</span></div>
+            <p class="card-desc">Python-based data analysis with pandas and matplotlib. Covers Google DA Coursera course 7 (adapted for Python).</p>
+            <p class="card-skills"><strong>Skills:</strong> Python, pandas, data wrangling, basic visualization</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-105+Python+Data+Analysis+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier1" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-105 CPL</span><div class="card-title">Python for Data Analysis<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">1 Unit</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only — no Coursera coursework required.</p>
+            <p class="card-skills"><strong>Evidence:</strong> Coursera cert (Course 7) + Python coding exercise</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-105+Python+Data+Analysis+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Tier 2 ── -->
+      <div class="tier-divider" data-tier="tier2"><span>Tier 2 — Full Semester Courses (3 Units)</span></div>
+      <div class="card-grid">
+
+        <div class="card course-card" data-tier="tier2" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-201</span><div class="card-title">Business Data Analytics</div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag coursera">Coursera 1, 2, 6</span><span class="meta-tag hours">12 Modules</span></div>
+            <p class="card-desc">How businesses use data to make decisions. Students work with spreadsheets, learn analytical thinking, build Tableau visualizations, and present findings to stakeholders.</p>
+            <p class="card-skills"><strong>Covers Tier 1:</strong> DA-101 + DA-104 content</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-201+Business+Data+Analytics+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-201 CPL</span><div class="card-title">Business Data Analytics<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only. Demonstrate competency in business analytics, spreadsheets, Tableau, and stakeholder communication.</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-201+Business+Data+Analytics+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-202</span><div class="card-title">SQL Data Analytics</div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag coursera">Coursera 3, 4, 5</span><span class="meta-tag hours">12 Modules</span></div>
+            <p class="card-desc">SQL as the primary language for data retrieval, manipulation, and analysis. From basic queries through joins, subqueries, database design, and data cleaning with real-world datasets.</p>
+            <p class="card-skills"><strong>Covers Tier 1:</strong> DA-102 + DA-103 content</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-202+SQL+Data+Analytics+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-202 CPL</span><div class="card-title">SQL Data Analytics<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only. Demonstrate competency in SQL queries, joins, subqueries, database design, and data cleaning.</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-202+SQL+Data+Analytics+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-203</span><div class="card-title">Data Visualization and Communication</div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag coursera">Coursera 6 (deep)</span><span class="meta-tag hours">10 Modules</span></div>
+            <p class="card-desc">Deep dive into visualization theory and Tableau mastery — LOD expressions, parameters, calculated fields, data storytelling, and presentation skills.</p>
+            <p class="card-skills"><strong>Covers Tier 1:</strong> DA-104 (expanded)</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-203+Data+Visualization+Communication+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-203 CPL</span><div class="card-title">Data Visualization and Communication<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only. Demonstrate competency in Tableau, dashboards, data storytelling, and presentations.</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-203+Data+Visualization+Communication+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="no">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-204</span><div class="card-title">Python for Data Science</div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag coursera">Coursera 7 (expanded)</span><span class="meta-tag hours">10 Modules</span></div>
+            <p class="card-desc">Python programming for data analysis — from fundamentals through pandas, matplotlib, and exploratory data analysis using real-world Bay Area transit datasets.</p>
+            <p class="card-skills"><strong>Covers Tier 1:</strong> DA-105 (expanded)</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-204+Python+Data+Science+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="yes">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id cpl">DA-204 CPL</span><div class="card-title">Python for Data Science<em>Credit for Prior Learning</em></div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag cpl-tag">CPL</span></div>
+            <p class="card-desc">Skills verification only. Demonstrate competency in Python, pandas, matplotlib, and exploratory data analysis.</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-204+Python+Data+Science+CPL+CCC&type=Course" target="_blank" class="btn btn-teal">View CPL on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+        <div class="card course-card" data-tier="tier2" data-cpl="no" style="grid-column: span 2;">
+          <div class="card-inner">
+            <div class="card-top"><span class="card-id">DA-205</span><div class="card-title">Data Analytics Capstone</div></div>
+            <div class="card-meta"><span class="meta-tag units">3 Units</span><span class="meta-tag coursera">Coursera 8 &amp; 9</span><span class="meta-tag hours">10 Modules</span></div>
+            <p class="card-desc">End-to-end analytics capstone: select a dataset, define research questions, conduct analysis, build a Tableau dashboard, present findings, and create a professional portfolio. No CPL variant — capstone requires original project work.</p>
+            <div class="card-actions"><a href="https://lor.instructure.com/resources?query=DA-205+Data+Analytics+Capstone+CCC+Google&type=Course" target="_blank" class="btn btn-primary">View on Commons <span class="arrow">&rarr;</span></a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Course Mapping ═══ -->
+  <section class="bg-light">
+    <div class="container">
+      <p class="section-label">Course Mapping</p>
+      <h2 class="section-title">Google Coursera &rarr; CCC Course Numbers</h2>
+      <p class="section-subtitle">How the 9 Google Data Analytics Coursera courses map to our course numbers.</p>
+      <table class="data-table">
+        <thead><tr><th>Google Coursera Course</th><th>Hours</th><th>Tier 1</th><th>Tier 2</th></tr></thead>
+        <tbody>
+          <tr><td>1. Foundations: Data, Data, Everywhere</td><td>13</td><td>DA-101</td><td>DA-201</td></tr>
+          <tr><td>2. Ask Questions to Make Data-Driven Decisions</td><td>15</td><td>DA-101</td><td>DA-201</td></tr>
+          <tr><td>3. Prepare Data for Exploration</td><td>19</td><td>DA-102</td><td>DA-202</td></tr>
+          <tr><td>4. Process Data from Dirty to Clean</td><td>16</td><td>DA-103</td><td>DA-202</td></tr>
+          <tr><td>5. Analyze Data to Answer Questions</td><td>26</td><td>DA-103</td><td>DA-202</td></tr>
+          <tr><td>6. Share Data Through the Art of Visualization</td><td>19</td><td>DA-104</td><td>DA-201 + DA-203</td></tr>
+          <tr><td>7. Data Analysis Using Python</td><td>27</td><td>DA-105</td><td>DA-204</td></tr>
+          <tr><td>8. Google Data Analytics Capstone</td><td>11</td><td>&mdash;</td><td>DA-205</td></tr>
+          <tr><td>9. Accelerate Your Job Search with AI</td><td>6</td><td>&mdash;</td><td>DA-205</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ Pathways ═══ -->
+  <section>
+    <div class="container">
+      <p class="section-label">Certificate Pathways</p>
+      <h2 class="section-title">Multiple Paths to a Certificate</h2>
+      <p class="section-subtitle">Designed for different student needs — from working adults to students with existing credentials.</p>
+      <div class="pathway-grid">
+        <div class="pathway-card">
+          <h3>Path A: Visualization Focus</h3>
+          <span class="pathway-units">12 Units</span>
+          <p>Comprehensive pathway emphasizing data visualization and communication.</p>
+          <div class="pathway-courses">DA-201 + DA-202 + DA-203 + DA-205</div>
+        </div>
+        <div class="pathway-card">
+          <h3>Path B: Technical / Python Focus</h3>
+          <span class="pathway-units">12 Units</span>
+          <p>Programming-focused pathway emphasizing Python for data science.</p>
+          <div class="pathway-courses">DA-201 + DA-202 + DA-204 + DA-205</div>
+        </div>
+        <div class="pathway-card">
+          <h3>Path C: Comprehensive</h3>
+          <span class="pathway-units">15 Units</span>
+          <p>Maximum coverage — all five Tier 2 courses for deepest preparation.</p>
+          <div class="pathway-courses">DA-201 + DA-202 + DA-203 + DA-204 + DA-205</div>
+        </div>
+        <div class="pathway-card">
+          <h3>Path D: Micro-Credential Stack</h3>
+          <span class="pathway-units">11-12 Units</span>
+          <p>Flexible pacing for working adults. Start with micro-credentials, add full courses.</p>
+          <div class="pathway-courses">5 Tier 1 courses + 2 Tier 2 courses</div>
+        </div>
+        <div class="pathway-card">
+          <h3>Path E: CPL Fast-Track</h3>
+          <span class="pathway-units">11-12 Units</span>
+          <p>For students who already hold the Google Data Analytics Certificate.</p>
+          <div class="pathway-courses">5 Tier 1 via CPL (5 units) + DA-205 + 1 Tier 2</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="js/components.js"></script>
+</body>
+</html>
