@@ -1,0 +1,158 @@
+{
+  "version": "3.1",
+  "bundle": "downloads/CCC-Data-Analytics-All-Courses-v3.1.zip",
+  "packages": [
+    {
+      "course": "DA-101",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-101-Data-Analytics-Foundations-v3.1.imscc",
+      "bytes": 31059,
+      "sha256": "87c6376a7e77582ddd43453e399ec9e5455782df3eb592aee23f5158c821cfb0",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-102",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-102-Data-Preparation-and-Integrity-v3.1.imscc",
+      "bytes": 29068,
+      "sha256": "bc7f3f64ffdcc19e52725989f926532f78bca397a3deca24b3f89ef4d580d2af",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-103",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-103-Data-Processing-with-SQL-v3.1.imscc",
+      "bytes": 30326,
+      "sha256": "78343ecd7e76eed04ecbf9cdc599ccf05e07a3e6ae86a4056a4748c2ecc6f70b",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-104",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-104-Data-Visualization-and-Storytelling-v3.1.imscc",
+      "bytes": 28729,
+      "sha256": "e8f2f9c22683d10c9c7342c4c46f7e43733f1b9a9a9b73f6517b938f67aeceb2",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-105",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-105-Python-for-Data-Analysis-v3.1.imscc",
+      "bytes": 28804,
+      "sha256": "359802c72befde9c38b508553523bd7af90dbe29249c0b6ce40c3dce74510dfb",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-201",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-201-Business-Data-Analytics-v3.1.imscc",
+      "bytes": 106066,
+      "sha256": "b7623a73ed86f7c7bbaf2454f8b1e59ba65ff1d8939795203ca32215f4081785",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-202",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-202-SQL-Data-Analytics-v3.1.imscc",
+      "bytes": 97663,
+      "sha256": "2b0313d62f75a15f345802288792fffa6e1a777dae33ca40030fd7c0d9e25577",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-203",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-203-Data-Visualization-and-Communication-v3.1.imscc",
+      "bytes": 112764,
+      "sha256": "ed8f0aff92c86603137d8ddc006295d3ea1eaa031977b56f62583f1f206fca5b",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-204",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-204-Python-for-Data-Science-v3.1.imscc",
+      "bytes": 98035,
+      "sha256": "7de86d189a5b6312d07483acacaea02e98c431eb1388628ae029c42c7ab13f2a",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-205",
+      "variant": "regular",
+      "file": "downloads/regular/CCC-Google-DA-205-Data-Analytics-Capstone-v3.1.imscc",
+      "bytes": 89389,
+      "sha256": "939ecf6614cbea2a4366e19da25a57c6d37e036c9c5ddcc9d6069c7a1dcdf4d5",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-101",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-101_cpl-Data-Analytics-Foundations-(CPL)-v3.1.imscc",
+      "bytes": 17150,
+      "sha256": "bff74cb490def38add307321667df9558304e7ba930851cfed607f59b05bc899",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-102",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-102_cpl-Data-Preparation-and-Integrity-(CPL)-v3.1.imscc",
+      "bytes": 17170,
+      "sha256": "ed7b1b4e6a33dc8c63f911d398184ecd793cc46c153a6d5975dbd0d394857c03",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-103",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-103_cpl-Data-Processing-with-SQL-(CPL)-v3.1.imscc",
+      "bytes": 16644,
+      "sha256": "3da034e09c2901d229c8ad9d0e77c90dd157ae4f494f16ee47bb8497ed69d5f7",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-104",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-104_cpl-Data-Visualization-and-Storytelling-(CPL)-v3.1.imscc",
+      "bytes": 16831,
+      "sha256": "f8d4c1a7d5a1a95dcccf30dd1f9c66cd73e994ac5ddbd4b5731a7b27949c63bf",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-105",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-105_cpl-Python-for-Data-Analysis-(CPL)-v3.1.imscc",
+      "bytes": 16843,
+      "sha256": "f2792ee89fdd992de3b86334d9390cf4bdc122a0bb605069c8fb71dcf50aef38",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-201",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-201_cpl-Business-Data-Analytics-(CPL)-v3.1.imscc",
+      "bytes": 14006,
+      "sha256": "48f028fa3c26de726e510c8a09373555fee7f61b7d39961494d5bec0b0480d29",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-202",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-202_cpl-SQL-Data-Analytics-(CPL)-v3.1.imscc",
+      "bytes": 14062,
+      "sha256": "3dc3f2f9564c36163a4334043e5e93b7a000d7a955687797ded7fec3bd4cb8ed",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-203",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-203_cpl-Data-Visualization-and-Communication-(CPL)-v3.1.imscc",
+      "bytes": 14020,
+      "sha256": "756571bb315dc36a5075ffb67797e87ad2d7b74b0e165698774b330b5fe0a861",
+      "version": "3.1"
+    },
+    {
+      "course": "DA-204",
+      "variant": "cpl",
+      "file": "downloads/cpl/CCC-Google-DA-204_cpl-Python-for-Data-Science-(CPL)-v3.1.imscc",
+      "bytes": 13991,
+      "sha256": "040073ef24220647c2fb8f8d17a731e95c9e58418109f18e875ade365f0091af",
+      "version": "3.1"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+# Every push runs the release checks. The site deploys ONLY if they pass,
+# then the live site and every download are re-checked after deploy.
+# A weekly run also catches external links that break on their own.
+# One-time setup: repo Settings -> Pages -> Source = "GitHub Actions".
+name: Check and deploy site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "0 15 * * 1"   # Mondays 7am Pacific
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Sabotage self-test (proves the checks still catch breakage)
+        run: python3 tests/self_test.py
+      - name: Release checks, including external links
+        run: python3 tests/run_checks.py --online
+
+  deploy:
+    needs: checks
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  verify-live:
+    needs: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for CDN, then check every page and download on the live site
+        run: |
+          sleep 60
+          python3 tests/run_checks.py --live "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+
+  weekly-live:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tests/run_checks.py --online --live "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"

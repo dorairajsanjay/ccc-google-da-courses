@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   CCC Google Tools & Certifications Microsite
+   CCC Industry Certificate Pathways
    Themed to match ai.cccco.edu
    ═══════════════════════════════════════════════ */
 
@@ -848,3 +848,26 @@ code {
 .mb-4 { margin-bottom: 2rem; }
 .text-center { text-align: center; }
 .full-span { grid-column: 1 / -1; }
+
+/* ── Additions for the Industry Certificate Pathways site ── */
+.status-pill { display:inline-block; font-size:.72rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; padding:.2rem .6rem; border-radius:999px; margin-bottom:.5rem; }
+.status-pill.live { background:#e3f4e8; color:var(--green); }
+.status-pill.planning { background:#fff4e0; color:#8a5300; }
+.status-pill.upcoming { background:#e6f7fd; color:#005f7a; }
+.status-pill.done { background:var(--palette7); color:var(--palette4); }
+.pipeline { list-style:none; display:grid; grid-template-columns:repeat(6,1fr); gap:1rem; counter-reset:step; margin-top:2rem; }
+.pipeline li { counter-increment:step; background:var(--palette9); border:1px solid var(--palette7); border-radius:var(--radius-sm); padding:1.25rem 1rem; position:relative; }
+.pipeline li::before { content:counter(step); display:flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; background:var(--purple); color:#fff; font-weight:600; margin-bottom:.75rem; }
+.pipeline h3 { font-size:1rem; margin-bottom:.35rem; }
+.pipeline p { font-size:.9rem; color:var(--palette5); }
+@media (max-width:960px){ .pipeline { grid-template-columns:repeat(3,1fr);} }
+@media (max-width:600px){ .pipeline { grid-template-columns:1fr;} }
+.partner-card { border:1px solid var(--palette7); border-radius:var(--radius); padding:2rem; background:var(--palette9); }
+.partner-card h3 { font-size:1.4rem; margin:.25rem 0 .75rem; }
+.partner-card ul { margin:.75rem 0 0 1.1rem; }
+.partner-card li { margin-bottom:.35rem; }
+.college-list { columns:3; column-gap:2rem; list-style:none; margin-top:1.5rem; }
+.college-list li { padding:.35rem 0; border-bottom:1px solid var(--palette7); break-inside:avoid; }
+@media (max-width:760px){ .college-list { columns:2; } }
+@media (max-width:480px){ .college-list { columns:1; } }
+.convening-table td:first-child { font-weight:600; }

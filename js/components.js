@@ -1,14 +1,14 @@
-/* Shared header, footer, and utilities for the CCC Google microsite */
+/* Shared header, footer, and utilities for the CCC Industry Certificate Pathways site */
 
 function renderHeader(activePage) {
   const pages = [
     { id: 'home', label: 'Overview', href: 'index.html' },
     { id: 'courses', label: 'Courses', href: 'courses.html' },
     { id: 'cpl', label: 'CPL Pathways', href: 'cpl.html' },
-    { id: 'faq', label: 'FAQ', href: 'faq.html' },
+    { id: 'rollout', label: 'Statewide Rollout', href: 'rollout.html' },
+    { id: 'partners', label: 'Partners', href: 'partners.html' },
     { id: 'getting-started', label: 'Get Started', href: 'getting-started.html' },
-    { id: 'entrepreneurship', label: 'Innovation', href: 'entrepreneurship.html' },
-    { id: 'pd', label: 'Prof. Development', href: 'professional-development.html' },
+    { id: 'faq', label: 'FAQ', href: 'faq.html' },
   ];
 
   const navLinks = pages.map(p =>
@@ -20,7 +20,7 @@ function renderHeader(activePage) {
   <header class="site-header">
     <a href="index.html" class="brand">
       <img src="https://ai.cccco.edu/wp-content/uploads/2026/02/cccco-seal-rev-2.svg" alt="CCCCO" width="40" height="40">
-      <span class="brand-text">CCCCO AI</span>
+      <span class="brand-text">Industry Certificate Pathways</span>
     </a>
     <button class="mobile-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">&#9776;</button>
     <nav>${navLinks}</nav>
@@ -42,7 +42,7 @@ function renderFooter() {
       </div>
       <div class="footer-col">
         <h3>About This Initiative</h3>
-        <p>The Google Tools and Certifications Rollout is a systemwide effort by the California Community Colleges Chancellor's Office, developed in partnership with San Jose City College, to bring Google's AI tools and career certificates to all 116 community colleges at no cost.</p>
+        <p>The California Community Colleges Chancellor's Office works with faculty and industry partners to turn industry-recognized certificates into college credit, with Canvas courses free for all 116 colleges. The initiative grew out of San Jose City College's Data Analytics pathway.</p>
       </div>
       <div class="footer-col">
         <h3>Quick Links</h3>
@@ -50,13 +50,12 @@ function renderFooter() {
           <a href="https://ai.cccco.edu/">CCCCO AI Microsite</a><br>
           <a href="https://ai.cccco.edu/initiatives/">Featured Initiatives</a><br>
           <a href="https://www.cccco.edu/">CCCCO.edu</a><br>
-          <a href="https://lor.instructure.com/">Canvas Commons</a><br>
-          <a href="https://cccdigitalcenter.org/projects/google-1.html">Digital Center — Google</a>
+          <a href="https://grow.google/certificates/">Google Career Certificates</a>
         </p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>Google and Coursera are trademarks of their respective owners.</p>
+      <p>Google and Coursera are trademarks of their respective owners. This site does not imply endorsement by any partner.</p>
       <div class="cc-badge">CC BY 4.0 — Free to use, adapt, and share with attribution</div>
     </div>
   </footer>`;
