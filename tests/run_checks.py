@@ -41,7 +41,7 @@ ALLOWED_BRACKETS = {"[Your College]", "[Instructor Name]", "[Semester]",
                     "[instructor-email@college.edu]", "[Email]", "[Office Hours]",
                     "[Semester Year]"}
 # External hosts that block automated checks but work in a browser.
-BOT_BLOCKED = {"www.linkedin.com"}
+BOT_BLOCKED = {"www.linkedin.com", "www.instagram.com"}
 
 results = {"pass": 0, "fail": 0, "warn": 0}
 
@@ -262,7 +262,13 @@ def check_external(urls):
         host = re.match(r"https?://([^/]+)", u).group(1)
         code = fetch(u)
         ok = isinstance(code, int) and code < 400
-        report(ok or host in BOT_BLOCKED, f"external link {u} -> {code}")
+        if ok:
+            report(True, "")
+        elif host in BOT_BLOCKED or code == 429:
+            # Social sites and rate limiters refuse automated checks but work in a browser.
+            report(False, f"external link {u} -> {code} (blocks automated checks; verify by hand if this persists)", warn=True)
+        else:
+            report(False, f"external link {u} -> {code}")
 
 
 def check_live(base, manifest):
