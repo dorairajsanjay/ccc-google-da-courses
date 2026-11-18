@@ -7,6 +7,7 @@ function renderHeader(activePage) {
     { id: 'cpl', label: 'CPL Pathways', href: 'cpl.html' },
     { id: 'rollout', label: 'Statewide Rollout', href: 'rollout.html' },
     { id: 'partners', label: 'Partners', href: 'partners.html' },
+    { id: 'news', label: 'News & Events', href: 'news.html' },
     { id: 'getting-started', label: 'Get Started', href: 'getting-started.html' },
     { id: 'faq', label: 'FAQ', href: 'faq.html' },
   ];

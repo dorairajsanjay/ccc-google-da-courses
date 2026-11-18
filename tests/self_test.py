@@ -36,6 +36,10 @@ SABOTAGE = {
     "unfilled placeholder inside a course": add_placeholder_to_package,
     "broken internal link": lambda r: edit(os.path.join(r, "index.html"), 'href="courses.html"', 'href="course.html"'),
     "out-of-scope tool mention": lambda r: edit(os.path.join(r, "faq.html"), "Industry partners such as Google", "Gemini and NotebookLM"),
+    "placeholder missing its Coming soon label": lambda r: edit(os.path.join(r, "partners.html"), '<span class="placeholder-label">Coming soon</span>\n          <h3>Future Partners', '<h3>Future Partners'),
+    "unapproved partner named in visible text": lambda r: edit(os.path.join(r, "partners.html"), "Future Partners", "IBM SkillsBuild"),
+    "unapproved partner hidden in an HTML attribute": lambda r: edit(os.path.join(r, "partners.html"), 'data-placeholder="Partner slot 1"', 'data-placeholder="Adobe slot"'),
+    "stray Coming soon text outside a placeholder": lambda r: edit(os.path.join(r, "faq.html"), "Industry partners such as Google", "Coming soon: industry partners such as Google"),
     "wrong CPL unit total": lambda r: edit(os.path.join(r, "cpl.html"), '<span class="num">17</span>', '<span class="num">14</span>'),
     "download button pointing at old version": lambda r: edit(os.path.join(r, "courses.html"), "-v3.1.imscc", "-v3.0.imscc"),
 }

@@ -59,7 +59,7 @@ the full course. This may include:
 ### Eligible Prior Learning Sources
 
 - **Industry certifications:** Google Data Analytics Professional Certificate,
-  IBM Data Analyst Professional Certificate, or equivalent
+  or an equivalent industry data analytics certificate
 - **Work experience:** Current or recent employment as a data analyst, business
   analyst, or similar role (minimum 1 year)
 - **Military training:** Data analysis, intelligence analysis, or IT-related MOS/rating

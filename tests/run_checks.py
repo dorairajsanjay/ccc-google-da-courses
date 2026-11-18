@@ -20,7 +20,7 @@ from imscc_check import check_package  # noqa: E402
 
 # ── What the site promises. Change these only when the catalog really changes. ──
 PAGES = ["index.html", "courses.html", "cpl.html", "rollout.html",
-         "partners.html", "getting-started.html", "faq.html"]
+         "partners.html", "news.html", "getting-started.html", "faq.html"]
 REGULAR_COURSES = ["DA-101", "DA-102", "DA-103", "DA-104", "DA-105",
                    "DA-201", "DA-202", "DA-203", "DA-204", "DA-205"]
 CPL_COURSES = [c for c in REGULAR_COURSES if c != "DA-205"]  # capstone has no CPL
@@ -32,10 +32,26 @@ BANNED = {
     r"notebook\s?lm": "Google AI tools are out of scope",
     r"google workspace": "Google AI tools are out of scope",
     r"digital center": "tools-rollout partner page is out of scope",
-    r"\bibm\b|skillsbuild": "IBM is not to be named on the site",
     r"@gmail\.com": "use institutional email addresses only",
     r"to be announced|\bTBD\b|lorem ipsum|\bTODO\b": "unfinished placeholder text",
 }
+# Partner MOUs require written permission before a partner is named in public.
+# This repo and site are PUBLIC, so this applies to page text, HTML attributes,
+# scripts, and docs. Move a partner into APPROVED_PARTNERS only after the
+# partner's point of contact has approved publication in writing.
+APPROVED_PARTNERS = {"Google"}
+PARTNER_PATTERNS = {
+    "IBM": r"\bibm\b|skillsbuild",
+    "Adobe": r"\badobe\b",
+    "NVIDIA": r"\bnvidia\b",
+    "Microsoft": r"\bmicrosoft\b",
+    "Intel": r"\bintel\b",
+    "AWS": r"\baws\b|amazon web services",
+    "Anthropic": r"\banthropic\b",
+    "CodePath": r"\bcodepath\b",
+    "PlayLab": r"\bplaylab\b",
+}
+
 # Bracketed fill-in fields allowed on purpose (faculty customize these after import).
 ALLOWED_BRACKETS = {"[Your College]", "[Instructor Name]", "[Semester]",
                     "[instructor-email@college.edu]", "[Email]", "[Office Hours]",
@@ -138,7 +154,7 @@ def check_pages():
     for name, p in parsed.items():
         for kind, href, attrs in p.links:
             if href.startswith(("mailto:", "tel:")):
-                report(re.match(r"mailto:[^@\s]+@[^@\s]+\.\w+$", href) is not None,
+                report(re.match(r"mailto:[^@\s?]+@[^@\s?]+\.\w+(\?\S*)?$", href) is not None,
                        f"{name}: malformed email link {href}")
                 continue
             if href.startswith(("http://", "https://")):
@@ -191,8 +207,6 @@ def check_downloads(parsed):
         body = " ".join(z.read(n).decode("utf-8", "replace") for n in z.namelist()
                         if n.endswith((".html", ".xml")))
         for pat, why in BANNED.items():
-            if pat.startswith(r"\bibm"):
-                continue  # course evidence lists may name other certificates
             hit = re.search(pat, body, re.I)
             report(hit is None, f"{e['file']}: contains '{hit.group(0) if hit else ''}' ({why})")
         for ph in set(re.findall(r"\[[^\]\[<>]{3,40}\]", re.sub(r"<[^>]+>", " ", body))):
@@ -226,6 +240,19 @@ def check_downloads(parsed):
     return m
 
 
+def check_partner_names():
+    print("── Partner naming (MOU publication approval)")
+    files = PAGES + ["js/components.js", "README.md"] + [
+        os.path.join("docs", f) for f in sorted(os.listdir(os.path.join(SITE, "docs"))) if f.endswith(".md")]
+    for f in files:
+        raw = open(os.path.join(SITE, f), encoding="utf-8").read()
+        for partner, pat in PARTNER_PATTERNS.items():
+            if partner in APPROVED_PARTNERS:
+                continue
+            hit = re.search(pat, raw, re.I)
+            report(hit is None, f"{f}: names {partner} ('{hit.group(0) if hit else ''}') before written partner approval")
+
+
 def check_content(parsed, manifest):
     print("── Content rules and consistency")
     texts = {n: p.visible for n, p in parsed.items()}
@@ -254,6 +281,46 @@ def check_content(parsed, manifest):
         stat = re.search(r"(\d+) Units Available", cpl, re.I)
         report(stat is not None and int(stat.group(1)) == CPL_UNITS,
                f"cpl.html: 'Units Available' should be {CPL_UNITS}")
+
+
+PLACEHOLDER_BLOCK = re.compile(
+    r'<(div|tr) class="(?:placeholder-card|placeholder-row)(?: [^"]*)?"[^>]*>.*?</\1>', re.S)
+
+
+def check_placeholders():
+    """Placeholders must be explicit, labeled slots, never stray 'coming soon' text."""
+    print("── Placeholders, events, and freshness")
+    import datetime
+    today = datetime.date.today()
+    pending, names = [], set()
+    for name in PAGES:
+        html = open(os.path.join(SITE, name), encoding="utf-8").read()
+        for m in PLACEHOLDER_BLOCK.finditer(html):
+            block = m.group(0)
+            label = re.search(r'data-placeholder="([^"]*)"', block)
+            report(label is not None and label.group(1).strip() != "",
+                   f"{name}: placeholder without a data-placeholder name")
+            report('class="placeholder-label">Coming soon<' in block,
+                   f"{name}: placeholder '{label.group(1) if label else '?'}' lacks the visible 'Coming soon' label")
+            if label:
+                report(label.group(1) not in names, f"{name}: duplicate placeholder name '{label.group(1)}'")
+                names.add(label.group(1))
+                pending.append(f"{name}: {label.group(1)}")
+        rest = PLACEHOLDER_BLOCK.sub("", html)
+        stray = re.search(r"coming soon", re.sub(r"<!--.*?-->", "", rest, flags=re.S), re.I)
+        report(stray is None, f"{name}: 'Coming soon' text outside a labeled placeholder")
+
+        for d in re.findall(r'data-event-date="(\d{4}-\d{2}-\d{2})"', html):
+            when = datetime.date.fromisoformat(d)
+            report(when >= today, f"{name}: event dated {d} is still shown as upcoming", warn=True)
+        months = re.findall(r'data-update-month="(\d{4})-(\d{2})"', html)
+        if months:
+            y, mth = max((int(a), int(b)) for a, b in months)
+            age = (today.year - y) * 12 + today.month - mth
+            report(age <= 1, f"{name}: newest monthly update is {y}-{mth:02d}; post a new one", warn=True)
+    if name == PAGES[-1]:
+        report("news.html" in PAGES, "news page missing")
+    return pending
 
 
 def check_external(urls):
@@ -287,10 +354,16 @@ def main():
     parsed, external = check_pages()
     manifest = check_downloads(parsed)
     check_content(parsed, manifest)
+    check_partner_names()
+    pending = check_placeholders()
     if "--online" in args:
         check_external(external)
     if "--live" in args and manifest:
         check_live(args[args.index("--live") + 1], manifest)
+    if pending:
+        print(f"\nPending content ({len(pending)} labeled 'Coming soon' slots):")
+        for p in pending:
+            print(f"  - {p}")
     print(f"\n{results['pass']} passed, {results['fail']} failed, {results['warn']} warnings")
     if results["fail"]:
         print("DO NOT PUBLISH: fix the FAIL lines above.")
